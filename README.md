@@ -1,1 +1,90 @@
 # student-result-managements-system
+
+// Array of student objects
+const students = [
+    {
+        id: 1,
+        name: "John",
+        age: 20,
+        department: "Computer Science",
+        scores: [70, 85, 90]
+    },
+    {
+        id: 2,
+        name: "Mary",
+        age: 21,
+        department: "Mathematics",
+        scores: [40, 45, 50]
+    },
+    {
+        id: 3,
+        name: "David",
+        age: 22,
+        department: "Physics",
+        scores: [88, 92, 95]
+    },
+    {
+        id: 4,
+        name: "Sarah",
+        age: 19,
+        department: "Biology",
+        scores: [60, 70, 65]
+    },
+    {
+        id: 5,
+        name: "Michael",
+        age: 23,
+        department: "Engineering",
+        scores: [75, 80, 78]
+    }
+];
+
+// Task 1: Display All Students
+console.log("=== All Students ===");
+for (let student of students) {
+    console.log(
+        `ID: ${student.id}, Name: ${student.name}, Department: ${student.department}`
+    );
+}
+
+// Task 2: Calculate Average Score
+console.log("\n=== Average Scores ===");
+
+for (let student of students) {
+    let total = student.scores.reduce((sum, score) => sum + score, 0);
+    let average = total / student.scores.length;
+
+    console.log(
+        `${student.name} - Average Score: ${average.toFixed(2)}`
+    );
+}
+
+// Task 3: Determine Pass or Fail
+console.log("\n=== Pass or Fail ===");
+
+for (let student of students) {
+    let total = student.scores.reduce((sum, score) => sum + score, 0);
+    let average = total / student.scores.length;
+
+    let result = average >= 50 ? "PASS" : "FAIL";
+    console.log(`${student.name} - ${result}`);
+}
+
+// Task 4: Find the Best Student
+let bestStudent = null;
+let highestAverage = 0;
+
+for (let student of students) {
+    let total = student.scores.reduce((sum, score) => sum + score, 0);
+    let average = total / student.scores.length;
+
+    if (average > highestAverage) {
+        highestAverage = average;
+        bestStudent = student;
+    }
+}
+
+console.log("\n=== Best Student ===");
+console.log(
+    `${bestStudent.name} - Highest Average Score: ${highestAverage.toFixed(2)}`
+);
